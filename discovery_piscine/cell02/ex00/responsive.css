@@ -1,0 +1,10 @@
+table, td{
+	border: 1px solid #000000;
+	border-collapse: collapse;
+	width: fit-content;
+}
+td {
+	font-family: Arial;
+	width: 1000px;
+	height: 100px;
+}
