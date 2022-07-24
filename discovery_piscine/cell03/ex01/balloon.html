@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta name="viewport"
+		content="width=device-width, initial-scale=1.0"/>
+		<script>
+			var index = 0;
+			var colorCode = ['#ff0000', '#00ff00', '#0000ff']
+
+			function upSize(self) {
+				changeColor(self);
+				if (self.offsetWidth + 10 <= 420)
+				{
+					self.style.width = (self.offsetWidth + 10) + 'px';
+					self.style.height = (self.offsetHeight + 10) + 'px';
+				}
+				else
+				{
+					self.style.width = '200px';
+					self.style.height = '200px';
+				}
+			}
+
+			function downSize(self) {
+				changeColorBackward(self);
+				if (self.offsetWidth > 200)
+				{
+					self.style.width = (self.offsetWidth - 5) + 'px';
+					self.style.height = (self.offsetHeight - 5) + 'px';
+				}
+			}
+
+			function changeColor(self) {
+				if (index < 2)
+					index++;
+				else
+					index = 0;
+				self.style.backgroundColor = colorCode[index];
+			}
+
+			function changeColorBackward(self) {
+				if (index > 0)
+					index--;
+				else
+					index = 2;
+				self.style.backgroundColor = colorCode[index];
+			}
+		</script>
+
+		<style>
+			body, html {
+				position: relative;
+				height: 100%;
+				margin: 0;
+			}
+			.balloon {
+				margin: 0 auto;
+				height: 200px;
+				width: 200px;
+				background-color: #ff0000;
+				border-radius: 50%;
+				background-position: center;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="balloon" onclick="upSize(this)" onmouseleave="downSize(this)"></div>
+	</body>
+</html>
